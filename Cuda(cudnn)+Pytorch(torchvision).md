@@ -154,10 +154,10 @@ Build cuda_11.3.r11.3/compiler.29745058_0
 拷贝文件到/usr/local/cuda-11.3(上一步cuda安装路径）中：  
 
 ```
-        sudo cp lib64/* /usr/local/cuda-11.3/lib64/
-	sudo cp include/* /usr/local/cuda-11.3/include/
-	sudo chmod a+r /usr/local/cuda-11.3/lib64/*
-	sudo chmod a+r /usr/local/cuda-11.3/include/*
+sudo cp lib64/* /usr/local/cuda-11.3/lib64/
+sudo cp include/* /usr/local/cuda-11.3/include/
+sudo chmod a+r /usr/local/cuda-11.3/lib64/*
+sudo chmod a+r /usr/local/cuda-11.3/include/*
 ```
 
 查看cuDNN版本，```cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2```  
