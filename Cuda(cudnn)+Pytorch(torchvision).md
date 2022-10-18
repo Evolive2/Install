@@ -93,6 +93,8 @@ cu113代表为匹配cuda11.3的GPU版本；torch-1.10.* 代表1.10.* 版本的py
 
 我们选择需要的 cuda11.3 torch-1.10.0 python3.8 linux_x86_64 对应版本
 
+另外，我们同样可以在该页面查找到与cuda、python匹配的torchvision包版本，也可不指定， 在之后的conda install中会根据pytorch版本自动匹配torchvision包。
+
 # 4. 安装
 # 4.1. 安装Cuda（由ROOT用户操作）
 cuda安装在系统目录中，方便所有用户使用，也可以避免安装中的麻烦，因此由root用户安装。
@@ -105,7 +107,7 @@ sudo sh cuda_11.3.0_465.19.01_linux.run
 
 ![dc92757ad4a148d3ae11575f6a4c6c1c](https://user-images.githubusercontent.com/104058290/196319828-532bfec4-d92b-4d34-b281-9cd9c98bf0e3.png)
 
-！记住图中"Please make sure that" 中的两个路径：/usr/local/cuda-11.* 下面的bin和lib64（有的为lib，没有64）
+！记住图中"Please make sure that" 中的两个路径：/usr/local/cuda-11.* 下面的bin和lib64（有的为lib，没有lib64）
 
 第二步，配置环境变量（由非ROOT用户配置）
 每个用户需要使用不同的cuda，用户根据需要，配置自己的环境变量调用。
@@ -165,7 +167,41 @@ Build cuda_11.3.r11.3/compiler.29745058_0
 
 安装成功
 
+# 4.3. 创建指定Python虚拟环境、安装Pytorch(GPU)
+由3.0中已知相应版本：torch-1.10.0 python3.8
+在conda下创建```conda create -n your_env_name python=3.8```，并激活```conda activate your_env_name```
+安装pytorch、torchvision、cudatoolkit（必须指定cudatoolkit,否则会安装成cpu版本）：
 
+```
+conda install pytorch=1.10.0 torchvision cudatoolkit=11.3
+or
+conda install pytorch=1.10.0 torchvision=0.11.1 cudatoolkit=11.3
+```
+
+安装过程中检查提供的pytorch是否来源于GPU版本,含cu字符。
+
+# 4.4. 检查Cuda与Pytorch是否可用
+
+```
+$ python
+Python 3.8.13 (default, Mar 28 2022, 11:38:47) 
+[GCC 7.5.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import torch
+>>> torch.cuda.is_available()
+True
+>>> 
+```
+成功！！！
+END
+
+# 后记
+涉及到nvidia的驱动版本限制问题，没有讲述，适机再补。
+
+参考：
+https://blog.csdn.net/qq_40630902/article/details/118356845
+https://www.jianshu.com/p/978bc51029fa
+https://blog.csdn.net/Robert_Q/article/details/124765164
 
 
 
