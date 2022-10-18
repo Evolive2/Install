@@ -109,24 +109,61 @@ sudo sh cuda_11.3.0_465.19.01_linux.run
 
 第二步，配置环境变量（由非ROOT用户配置）
 每个用户需要使用不同的cuda，用户根据需要，配置自己的环境变量调用。
-打开配置文件：
+打开配置文件（有的使用的zsh，非bash，不考虑此情况）：
 
 ```
 vim ~/.bashrc
 ```
 
-在配置文件末尾加上（注意这里的/usr/local/cuda-11.* 路径和上面安装截图里面的路径一致）
+在配置文件末尾加上（注意这里的/usr/local/cuda-11.* 路径和上面安装截图里面的路径一致）：
 
 ```
 export PATH=//usr/local/cuda-11.5/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-11.5/lib64$LD_LIBRARY_PATH
 ```
 
-激活配置文件
+保存退出，激活配置文件：
+
 ```
 source ~/.bashrc
 ```
 
+使用```nvcc -V```检查CUDA是否安装成功，出现提示代表安装成功。
+
+```
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Sun_Mar_21_19:15:46_PDT_2021
+Cuda compilation tools, release 11.3, V11.3.58
+Build cuda_11.3.r11.3/compiler.29745058_0
+```
+# 4.2. 安装cuDNN（由ROOT用户操作）
+转到2.0中cudnn-11.3-linux-x64-v8.2.0.53下载的目录,解压cuDNN文件
+```
+  tar -xvf cudnn-11.3-linux-x64-v8.2.0.53.tgz
+```
+并进入解压出来的文件```ls```,结果如下：
+```include  lib64  NVIDIA_SLA_cuDNN_Support.txt```
+拷贝文件到/usr/local/cuda-11.3(上一步cuda安装路径）中：
+```
+  sudo cp lib64/* /usr/local/cuda-11.3/lib64/
+	sudo cp include/* /usr/local/cuda-11.3/include/
+	sudo chmod a+r /usr/local/cuda-11.3/lib64/*
+	sudo chmod a+r /usr/local/cuda-11.3/include/*
+```
+查看cuDNN版本，```cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2```
+
+```
+#define CUDNN_MAJOR 8
+#define CUDNN_MINOR 2
+#define CUDNN_PATCHLEVEL 0
+--
+#define CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)
+
+#endif /* CUDNN_VERSION_H */
+```
+
+安装成功
 
 
 
