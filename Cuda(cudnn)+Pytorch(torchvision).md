@@ -56,7 +56,24 @@ https://docs.nvidia.com/cuda/ampere-compatibility-guide/index.html#application-c
 
 第三步，安装cuda
 好吧，其实是叫你不要安装。
-等解决所有涉及版本，再装不迟
+等解决所有涉及版本，再装不迟。
+不过可以先下载，也可以最后返回下载。在cuda官网 https://developer.nvidia.cn/cuda-toolkit-archive 选择合适的版本。
+
+
+
+我们选择11.3.0，点击转到下载页面，选择对应系统版本：
+
+![image](https://user-images.githubusercontent.com/104058290/196317456-32d0e4fc-7738-4885-ba25-1f7d3001b79d.png)
+
+我们的Ubuntu为22.04，选择20.04勉强能用。出现下载/运行命令：
+
+![image](https://user-images.githubusercontent.com/104058290/196317874-202ed43c-b09f-4075-9e37-533a2904d03a.png)
+
+```
+wget https://developer.download.nvidia.com/compute/cuda/11.3.0/local_installers/cuda_11.3.0_465.19.01_linux.run
+sudo sh cuda_11.3.0_465.19.01_linux.run
+```
+存起来最后安装再用
 
 # 2. 选择cuDNN
 假设通过1.0确定cuda11.3，到官网 https://developer.nvidia.com/rdp/cudnn-archive#a-collapse805-111 下载与CUDA匹配的cuDNN
@@ -72,6 +89,44 @@ https://docs.nvidia.com/cuda/ampere-compatibility-guide/index.html#application-c
 ![image](https://user-images.githubusercontent.com/104058290/196314766-f53f0c6c-63e5-432a-b523-85ec4491d1f7.png)
 
 cu113代表为匹配cuda11.3的GPU版本；torch-1.10.* 代表1.10.* 版本的pytorch；cp-38代表匹配python3.8版本；Linux_x86_64为匹配系统架构
+！！！切记保证所选版本之间匹配，存在，如上图所示pytorch-1.11.0已经不支持python-3.6
+
+我们选择需要的 cuda11.3 torch-1.10.0 python3.8 linux_x86_64 对应版本
+
+# 4. 安装
+# 4.1. 安装Cuda（由ROOT用户操作）
+cuda安装在系统目录中，方便所有用户使用，也可以避免安装中的麻烦，因此由root用户安装。
+第一步，随便在哪个目录下（记得安装完删掉安装程序就行），使用1.中得到的cuda命令：
+```
+wget https://developer.download.nvidia.com/compute/cuda/11.3.0/local_installers/cuda_11.3.0_465.19.01_linux.run
+sudo sh cuda_11.3.0_465.19.01_linux.run
+```
+安装成功后（以cuda11.5为例）：
+
+![dc92757ad4a148d3ae11575f6a4c6c1c](https://user-images.githubusercontent.com/104058290/196319828-532bfec4-d92b-4d34-b281-9cd9c98bf0e3.png)
+
+！记住图中"Please make sure that" 中的两个路径：/usr/local/cuda-11.* 下面的bin和lib64（有的为lib，没有64）
+
+第二步，配置环境变量（由非ROOT用户配置）
+每个用户需要使用不同的cuda，用户根据需要，配置自己的环境变量调用。
+打开配置文件：
+
+```
+vim ~/.bashrc
+```
+
+在配置文件末尾加上（注意这里的/usr/local/cuda-11.* 路径和上面安装截图里面的路径一致）
+
+```
+export PATH=//usr/local/cuda-11.5/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.5/lib64$LD_LIBRARY_PATH
+```
+
+激活配置文件
+```
+source ~/.bashrc
+```
+
 
 
 
