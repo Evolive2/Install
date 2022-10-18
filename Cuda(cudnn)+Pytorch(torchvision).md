@@ -2,7 +2,7 @@
 # 0. Need To Know
 通常，我们首先在conda上安装虚拟环境，设定了python的版本；这不是一种好的流程，它会导致你在之后的torch和cuda的选择中，迫使你更换python版本。
 事实上，我们认为在确定所有版本互相匹配后，再进行环境创建是保险的，从cuda>torch>python的选择是合理的。
-# 1. Cuda安装
+# 1. 选择Cuda
 第一步，必须了解所用GPU的算力。
 通过命令行键入：
 ```
@@ -58,8 +58,21 @@ https://docs.nvidia.com/cuda/ampere-compatibility-guide/index.html#application-c
 好吧，其实是叫你不要安装。
 等解决所有涉及版本，再装不迟
 
-# 2. 安装cudnn
-假设通过1.0确定cuda11.3，到 官网下载与CUDA匹配的
+# 2. 选择cuDNN
+假设通过1.0确定cuda11.3，到官网 https://developer.nvidia.com/rdp/cudnn-archive#a-collapse805-111 下载与CUDA匹配的cuDNN
+
+![image](https://user-images.githubusercontent.com/104058290/196313825-ac47e8f2-8473-4a22-b282-5791e3e7b115.png)
+
+下载成功等之后一并安装
+
+# 3. 选择Pytorch(GPU)和python
+根据前面确定的cuda，选择pytorch版本。
+在 https://download.pytorch.org/whl/torch_stable.html 页面寻找torch（GPU）与python对应资源
+
+![image](https://user-images.githubusercontent.com/104058290/196314766-f53f0c6c-63e5-432a-b523-85ec4491d1f7.png)
+
+cu113代表为匹配cuda11.3的GPU版本；torch-1.10.* 代表1.10.* 版本的pytorch；cp-38代表匹配python3.8版本；Linux_x86_64为匹配系统架构
+
 
 
 
