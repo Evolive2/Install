@@ -127,7 +127,7 @@ vim ~/.bashrc
 
 ```
 export PATH=/usr/local/cuda-11.5/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-11.5/lib64$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.5/lib64:$LD_LIBRARY_PATH
 ```
 
 保存退出，激活配置文件：  
