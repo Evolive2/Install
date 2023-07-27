@@ -126,7 +126,7 @@ vim ~/.bashrc
 在配置文件末尾加上（注意这里的/usr/local/cuda-11.* 路径和上面安装截图里面的路径一致）：  
 
 ```
-export PATH=//usr/local/cuda-11.5/bin:$PATH
+export PATH=/usr/local/cuda-11.5/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-11.5/lib64$LD_LIBRARY_PATH
 ```
 
