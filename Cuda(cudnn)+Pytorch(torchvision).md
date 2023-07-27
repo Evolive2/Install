@@ -53,6 +53,9 @@ https://docs.nvidia.com/cuda/ampere-compatibility-guide/index.html#application-c
 ![image](https://user-images.githubusercontent.com/104058290/196311128-9a098f5e-32c0-4a18-bbed-9194faf137fa.png)
 
 可以看到cuda11.0+才支持sm_80（包括sm_86）  
+https://en.wikipedia.org/wiki/CUDA#GPUs_supported
+![image](https://github.com/Evolive2/Install/assets/104058290/54ef7515-3948-44de-afc3-5e8fb0fd46aa)
+
 保险起见，搜索相关论坛讨论，最低采用cuda11.3版本，如前所述，最高11.7
 
 第三步，安装cuda  
