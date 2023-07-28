@@ -221,6 +221,7 @@ END
 涉及到nvidia的驱动版本限制问题，没有讲述，适机再补。  
 
 参考：  
+https://blog.csdn.net/qq_17716819/article/details/129656230  
 https://blog.csdn.net/qq_40630902/article/details/118356845  
 https://blog.csdn.net/erdaidai/article/details/125846275  
 https://www.jianshu.com/p/978bc51029fa  
