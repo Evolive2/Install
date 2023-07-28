@@ -180,7 +180,8 @@ sudo chmod a+r /usr/local/cuda-11.3/include/*
 # 4.3. 创建指定Python虚拟环境、安装Pytorch(GPU)
 由3.0中已知相应版本：torch-1.10.0 python3.8  
 在conda下创建```conda create -n your_env_name python=3.8```，并激活```conda activate your_env_name```  
-安装pytorch、torchvision、cudatoolkit（必须指定cudatoolkit,否则会安装成cpu版本）：  
+接下来有两种区别：  
+情况1：安装pytorch、torchvision、cudatoolkit（必须指定cudatoolkit,否则会安装成cpu版本）：  
 
 ```
 conda install pytorch=1.10.0 torchvision cudatoolkit=11.3
@@ -189,6 +190,16 @@ conda install pytorch=1.10.0 torchvision=0.11.1 cudatoolkit=11.3
 ```
 
 安装过程中检查提供的pytorch是否来源于GPU版本,含cu字符。  
+
+情况2：！！！注意如果选出的Pytorch v1.13.0及以后版本，最后安装请查询 https://pytorch.org/get-started/previous-versions/ 中的命令：  
+
+```
+# CUDA 11.6
+conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cuda=11.6 -c pytorch -c nvidia
+# CUDA 11.7
+conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cuda=11.7 -c pytorch -c nvidia
+# CPU Only
+```
 
 # 4.4. 检查Cuda与Pytorch是否可用
 
