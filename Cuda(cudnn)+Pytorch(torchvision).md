@@ -40,12 +40,18 @@ nvidia-smi
 +-----------------------------------------------------------------------------+
 ```
 可以看到我的GPU为两块NVIDIA RTX A6000，驱动版本为Driver Version: 515.57，最高支持CUDA Version: 11.7（并非表示已安装成功版本）  
-然后，查找GPU算力，https://developer.nvidia.com/zh-cn/cuda-gpus#compute 页面查找如下：
+然后，
+（1）查找GPU算力，https://developer.nvidia.com/zh-cn/cuda-gpus#compute 页面查找如下：
 
 ![image](https://user-images.githubusercontent.com/104058290/196312385-c4bbc182-7eb4-4f1f-a9e5-a370f8227ca6.png)
 
 虽然没有找到A6000，不过我通过其他方法查到：  
 A6000对应sm_86
+（2）查找驱动最高支持cuda版本，https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html  页面查找如下：
+
+![image](https://github.com/Evolive2/Install/assets/104058290/e3acf3ba-3b08-4a96-a624-6a3112a8b411)
+
+上图中可见Driver Version: 515.57，最高支持CUDA Version: 11.8（非11.7，是由于515.57出来时还没有11.8），
 
 第二步，匹配对应算力的Cuda版本  
 https://docs.nvidia.com/cuda/ampere-compatibility-guide/index.html#application-compatibility-on-ampere  
@@ -56,7 +62,7 @@ https://docs.nvidia.com/cuda/ampere-compatibility-guide/index.html#application-c
 https://en.wikipedia.org/wiki/CUDA#GPUs_supported
 ![image](https://github.com/Evolive2/Install/assets/104058290/54ef7515-3948-44de-afc3-5e8fb0fd46aa)
 
-保险起见，搜索相关论坛讨论，最低采用cuda11.3版本，如前所述，最高11.7
+保险起见，搜索相关论坛讨论，最低采用cuda11.3版本，如前所述，最高11.7；如果与前面驱动版本不兼容，则可能要升级到合适驱动，或降低cuda版本。  
 
 第三步，安装cuda  
 好吧，其实是叫你不要安装。  
@@ -218,7 +224,7 @@ True
 END  
 
 # 后记
-涉及到nvidia的驱动版本限制问题，没有讲述，适机再补。  
+涉及到gccd等版本限制问题，没有讲述，适机再补。  
 
 参考：  
 https://blog.csdn.net/qq_17716819/article/details/129656230  
