@@ -223,7 +223,7 @@ True
 END  
 
 # 后记
-涉及到gccd等版本限制问题，没有讲述，适机再补。  
+涉及到gcc等版本限制问题，没有讲述，适机再补。  
 
 参考：  
 https://blog.csdn.net/qq_17716819/article/details/129656230  
