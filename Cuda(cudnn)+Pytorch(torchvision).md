@@ -40,18 +40,17 @@ nvidia-smi
 +-----------------------------------------------------------------------------+
 ```
 可以看到我的GPU为两块NVIDIA RTX A6000，驱动版本为Driver Version: 515.57，最高支持CUDA Version: 11.7（并非表示已安装成功版本）  
-然后，
+然后，  
 （1）查找GPU算力，https://developer.nvidia.com/zh-cn/cuda-gpus#compute 页面查找如下：
 
 ![image](https://user-images.githubusercontent.com/104058290/196312385-c4bbc182-7eb4-4f1f-a9e5-a370f8227ca6.png)
 
-虽然没有找到A6000，不过我通过其他方法查到：  
-A6000对应sm_86
+虽然没有找到A6000，不过我通过其他方法查到：A6000对应sm_86  
 （2）查找驱动最高支持cuda版本，https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html  页面查找如下：
 
 ![image](https://github.com/Evolive2/Install/assets/104058290/e3acf3ba-3b08-4a96-a624-6a3112a8b411)
 
-上图中可见Driver Version: 515.57，最高支持CUDA Version: 11.8（非11.7，是由于515.57出来时还没有11.8），
+上图中可见Driver Version: 515.57，最高支持CUDA Version: 11.8（非11.7，是由于515.57出来时还没有11.8）。  
 
 第二步，匹配对应算力的Cuda版本  
 https://docs.nvidia.com/cuda/ampere-compatibility-guide/index.html#application-compatibility-on-ampere  
@@ -83,14 +82,14 @@ https://en.wikipedia.org/wiki/CUDA#GPUs_supported
 wget https://developer.download.nvidia.com/compute/cuda/11.3.0/local_installers/cuda_11.3.0_465.19.01_linux.run
 sudo sh cuda_11.3.0_465.19.01_linux.run
 ```
-存起来最后安装再用
+存起来最后安装再用  
 
 # 2. 选择cuDNN
 假设通过1.0确定cuda11.3，到官网 https://developer.nvidia.com/rdp/cudnn-archive#a-collapse805-111 下载与CUDA匹配的cuDNN
 
 ![image](https://user-images.githubusercontent.com/104058290/196313825-ac47e8f2-8473-4a22-b282-5791e3e7b115.png)
 
-下载成功等之后一并安装
+下载成功等之后一并安装  
 
 # 3. 选择Pytorch(GPU)和python
 根据前面确定的cuda，选择pytorch版本。  
