@@ -223,7 +223,9 @@ True
 END  
 
 # 后记
-涉及到gcc等版本限制问题，没有讲述，适机再补。  
+涉及到gcc等版本限制问题，没有讲述，适机再补：  
+https://docs.nvidia.com/cuda/archive/11.3.0/cuda-installation-guide-linux/index.html  
+https://blog.csdn.net/aizsa111/article/details/129455363
 
 参考：  
 https://blog.csdn.net/qq_17716819/article/details/129656230  
