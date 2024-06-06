@@ -66,7 +66,7 @@ https://en.wikipedia.org/wiki/CUDA#GPUs_supported
 第三步，安装cuda  
 好吧，其实是叫你不要安装。  
 等解决所有涉及版本，再装不迟。  
-不过可以先下载，也可以最后返回下载。在cuda官网 https://developer.nvidia.cn/cuda-toolkit-archive 选择合适的版本。
+不过可以先下载，也可以最后返回下载。在cuda官网 https://developer.nvidia.com/cuda-toolkit-archive 选择合适的版本。
 
 ![image](https://user-images.githubusercontent.com/104058290/196330538-fc5b9ef3-38df-48ed-942a-ec68939893ef.png)
 
